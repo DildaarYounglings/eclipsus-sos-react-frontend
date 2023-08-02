@@ -12,7 +12,7 @@ function App() {
     <React.Fragment>
       <div>
         <MainSideNavbar UI_state={[UI,set_UI]}/>
-        {UI === "/Dashboard" ? <><UserProfileNavbar/></> : ""}
+        {UI === "/Dashboard" ? <><HomePage/></> : ""}
       </div>
     </React.Fragment>
   )
