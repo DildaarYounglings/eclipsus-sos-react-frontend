@@ -115,7 +115,7 @@ export const MainSideNavbar = function ({ UI_state }) {
           style={{
             position: "absolute",
             left: "0px",
-            top: "0px",
+            top: "-20px",
             listStyleType: "none",
             backgroundColor: "#13163F",
             height: "100vh",
@@ -170,7 +170,7 @@ export const MainSideNavbar = function ({ UI_state }) {
           style={{
             position: "absolute",
             left: "0px",
-            top: "0px",
+            top: "-20px",
             listStyleType: "none",
             backgroundColor: "#13163F",
             height: "100vh",
@@ -225,7 +225,7 @@ export const MainSideNavbar = function ({ UI_state }) {
           style={{
             position: "absolute",
             left: "0px",
-            top: "0px",
+            top: "-20px",
             listStyleType: "none",
             backgroundColor: "#13163F",
             height: "100vh",
@@ -280,7 +280,7 @@ export const MainSideNavbar = function ({ UI_state }) {
           style={{
             position: "absolute",
             left: "0px",
-            top: "0px",
+            top: "-20px",
             listStyleType: "none",
             backgroundColor: "#13163F",
             height: "100vh",

@@ -5,7 +5,7 @@ export const EmergencyRequestsTable = function () {
     <div
       style={{
         display: "flex",
-        gap: "1rem",
+        gap: "30rem",
         position: "absolute",
         top: "400px",
         left: "130px",
@@ -1107,10 +1107,12 @@ export const EmergencyRequestsTable = function () {
       </ol>
       <ol
         style={{
+          borderRadius:"25px",
+          outline:"1px solid black",
           listStyleType: "none",
         }}
       >
-        <li>
+        <li style={{translate:"-40px 40px"}}>
           <ul
             style={{
               listStyleType: "none",

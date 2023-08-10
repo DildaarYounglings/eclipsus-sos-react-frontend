@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.scss'
 import { HomePage } from './pages/HomePage'
 import { MainSideNavbar } from './components/homePage-UI-components/MainSideNavbar'
+import { ContactsPage } from './pages/ContactsPage'
 
 export const UI_context = React.createContext()
 function App() {
@@ -13,7 +14,7 @@ function App() {
     <React.Fragment>
       <div>
         <MainSideNavbar UI_state={[UI,set_UI]}/>
-        {UI === "/Dashboard" ? <><HomePage/></> : ""}
+        {UI === "/Dashboard" ? <><HomePage/></> : UI === "/Contacts" ? <><ContactsPage/></> : "Nothing to see here"}
       </div>
     </React.Fragment>
   )
