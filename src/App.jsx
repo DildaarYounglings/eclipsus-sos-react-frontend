@@ -4,9 +4,10 @@ import viteLogo from '/vite.svg'
 import './App.scss'
 import { HomePage } from './pages/HomePage'
 import { MainSideNavbar } from './components/homePage-UI-components/MainSideNavbar'
-import { UserProfileNavbar } from './components/homePage-UI-components/UserProfileNavbar'
 
+export const UI_context = React.createContext()
 function App() {
+
   const [UI, set_UI] = useState("/Dashboard");
   return (
     <React.Fragment>
