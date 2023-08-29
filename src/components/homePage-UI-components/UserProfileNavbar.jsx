@@ -94,8 +94,8 @@ export const UserProfileNavbar = function () {
     <div
       style={{
         position: "absolute",
-        top: "0px",
-        left: "130px",
+        top: "0vh",
+        left: "9.5vw",
         width: "fit-content",
         height: "6rem",
       }}
@@ -104,12 +104,12 @@ export const UserProfileNavbar = function () {
         style={{
           display: "flex",
           flexDirection: "row",
-          gap: "20rem",
+          gap: "10vw",
           listStyle: "none",
           translate:"-20px 0px"
         }}
       >
-        <li style={{ display: "flex", flexDirection: "row", gap: "5rem" }}>
+        <li style={{display: "flex", flexDirection: "row", gap: "3vw" }}>
           <span style={{ fontSize: "19px" }}>Dashboard</span>{" "}
           <input
             style={{ width: "309px", height: "39px", borderRadius: "50px" }}
@@ -123,7 +123,7 @@ export const UserProfileNavbar = function () {
             top: "-10px",
             backgroundColor: "#13163F",
             borderRadius: "8px",
-            height: "5rem",
+            height: "fit-content",
             width: "fit-content",
             display: "flex",
           }}
@@ -133,17 +133,17 @@ export const UserProfileNavbar = function () {
               style={{
                 display: "flex",
                 flexDirection: "row",
-                gap: "2rem",
+                gap: "1rem",
                 listStyle: "none",
               }}
             >
-              <li style={{ display: "flex", flexDirection: "column" }}>
-                <p style={{ color: "white" }}>Simthembile Kleinbooi</p>
-                <p style={{ color: "grey", translate: "0px -25px" }}>
-                  +12 345 6789
+              <li style={{ display: "flex" }}>
+                <p style={{ color: "white" }}>
+                  Simthembile Kleinbooi<br/>
+                  <span style={{ color: "grey", translate: "0px -25px" }}>+12 345 6789</span>
                 </p>
               </li>
-              <li style={{ translate: "-10px 10px" }}>
+              <li style={{height:"fit-content",width:"fit-content",translate: "-10px 10px" }}>
                 <button
                   style={{
                     backgroundColor: "#FF0000",
@@ -158,8 +158,8 @@ export const UserProfileNavbar = function () {
             </ul>
           </div>
         </li>
-        <li style={{ translate: "0px -5px" }}>
-          <ul style={{ listStyle: "none", display: "flex", gap: "6rem" }}>
+        <li style={{translate: "0px -5px"}}>
+          <ul style={{ listStyle: "none", display: "flex", gap: "5rem" }}>
             <li>
               <BellIcon_SVG />
             </li>

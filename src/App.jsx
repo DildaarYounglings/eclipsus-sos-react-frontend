@@ -4,6 +4,7 @@ import { HomePage } from "./pages/HomePage";
 import { MainSideNavbar } from "./components/homePage-UI-components/MainSideNavbar";
 import { ContactsPage } from "./pages/ContactsPage";
 import { Arrays } from "./react_array_management_practice/Arrays";
+import { MapPage } from "./pages/MapPage";
 
 export const UI_context = React.createContext();
 function App() {
@@ -24,6 +25,8 @@ function App() {
             <>
               <ContactsPage />
             </>
+          ) : UI === "/Map" ? (
+            <MapPage/>
           ) : (
             "Nothing to see here"
           )}

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, {useState } from "react";
 
 export const ContactsPageList = function (props) {
   const [initialListOfContacts,listOfContacts, setListOfContacts] = props.listOfContacts;
@@ -37,7 +37,7 @@ export const ContactsPageList = function (props) {
           width: "fit-content",
           height: "78vh",
           flexDirection: "column",
-          gap: "5vh",
+          gap: "4vh",
           overflowY: "scroll",
         }}
       >
@@ -504,7 +504,7 @@ export const ContactsPageBody = function () {
         left: "130px",
         display: "grid",
         gridTemplateColumns: "auto auto auto",
-        gap: "13.5vw",
+        gap: "5vw",
         width: "fit-content",
         height: "fit-content",
       }}

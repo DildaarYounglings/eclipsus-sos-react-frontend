@@ -177,8 +177,8 @@ export const CCT_LawEnforcementCard_SVG = function () {
 export const WelcomeUser = function () {
   return (
     <div style={{ position: "absolute", top: "102px", left: "130px",width:"fit-content",height:"13rem"}}>
-      <ol style={{translate:"-25px 0px",listStyle: "none" ,display:"flex",gap:"10rem"}}>
-        <li><p style={{fontWeight:"bold",fontSize:"28px",textAlign:"start"}}>Welcome,<br/>Lutho Majama</p></li>
+      <ol style={{width:"87vw",translate:"-10px 0px",listStyle: "none" ,display:"flex",gap:"6.5vw"}}>
+        <li><p style={{fontWeight:"bold",fontSize:"26px",textAlign:"start"}}>Welcome,<br/>Lutho Majama</p></li>
         <li>
           <PoliceCard_SVG />
         </li>
@@ -191,7 +191,7 @@ export const WelcomeUser = function () {
         <li>
           <CCT_LawEnforcementCard_SVG />
         </li>
-        <li>
+        <li style={{translate:"0px -10px"}}>
           <p>Recent Activities</p>
           <div style={{backgroundColor:"lightgray",width:"120px",height:"120px"}}></div>
         </li>

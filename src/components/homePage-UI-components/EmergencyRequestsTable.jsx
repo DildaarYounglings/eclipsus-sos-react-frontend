@@ -5,42 +5,16 @@ export const EmergencyRequestsTable = function () {
     <div
       style={{
         display: "flex",
-        gap: "30rem",
+        gap: "15rem",
         position: "absolute",
-        top: "400px",
-        left: "130px",
+        top: "300px",
+        left: "100px",
         width: "fit-content",
         height: "fit-content",
       }}
     >
-      <ol style={{ listStyle: "none" }}>
+      <ol style={{listStyle: "none" }}>
         <li>
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <div>
-              <p></p>
-              <p></p>
-            </div>
-
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <div></div>
-              <ol
-                style={{
-                  listStyle: "none",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <li></li>
-                <li></li>
-              </ol>
-            </div>
-          </div>
           <table
             style={{
               overflowX: "hidden",
