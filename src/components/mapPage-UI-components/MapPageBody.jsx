@@ -12,7 +12,7 @@ export const ToggleableSideNavbar = function (props) {
     } else {
       const filtered = [...listOfContacts].filter(
         (item, index, arr) =>
-        item.Fullname.toUpperCase().includes(searchQueryText.toUpperCase())
+          item.Fullname.toUpperCase().includes(searchQueryText.toUpperCase())
       );
       console.log(filtered);
       setListOfContacts(filtered);
@@ -40,7 +40,7 @@ export const ToggleableSideNavbar = function (props) {
           }
         `}
       </style>
-      <div style={{translate: "0px 0px",position:"absolute",top:"15vh",transitionDuration:"1000ms",height:"30vh"}}>
+      <div style={{ translate: "0px 0px", position: "absolute", top: "15vh", transitionDuration: "1000ms", height: "30vh" }}>
         <input
           type="search"
           placeholder="🔍Search"
@@ -69,8 +69,8 @@ export const ToggleableSideNavbar = function (props) {
                   display: "flex",
                   gap: "2rem",
                   backgroundColor: `${isclickedItem.Fullname === item.Fullname
-                      ? "lightgrey"
-                      : "white"
+                    ? "lightgrey"
+                    : "white"
                     }`,
                 }}
               >
@@ -110,209 +110,211 @@ export const ToggleableSideNavbar = function (props) {
 };
 
 export const RenderMap = function () {
-  return <div style={{position:"relative",top:"25vh",left:"25vw",zIndex: -1 }}>MapRenderer</div>;
+  return <div style={{ position: "relative", top: "25vh", left: "25vw", zIndex: -1 }}>MapRenderer</div>;
 };
 
-export const MapPageFocusedContactInfo = function(props){
-  const [isclickedItem] = props.isclickedItem;
-  if (
-    isclickedItem.Fullname === "" ||
-    isclickedItem === undefined ||
-    isclickedItem === null
-  ) {
-    return <div style={{position:"absolute",left:"70vw"}}>Loading...</div>;
-  }
+export const MapPageFocusedContactInfo = function (props) {
+  const [isclickedItem,setIsclickedItem] = props.isclickedItem;
+
   return (
-    <div
-      style={{
-        position:"absolute",top:"12vh",left:"73vw",
-        backgroundColor: "lightgrey",
-        height: "fit-content",
-        width: "fit-content",
-      }}
-    >
-      <form>
-        <ol
+    <React.Fragment>
+    {
+        isclickedItem.Fullname === "" ||
+        isclickedItem === undefined ||
+        isclickedItem === null ? <div style={{ position: "absolute", top:"20vh",left:"80vw" }}>Loading...</div> : (
+        <div
           style={{
-            listStyleType: "none",
-            display: "flex",
-            flexDirection: "column",
-            alignContent: "flex-start",
-            alignItems: "flex-start",
-          }}
-        >
-          <li
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignContent: "flex-start",
-              alignItems: "flex-start",
-              gap: "5vh",
-            }}
-          >
-            <ul
-              style={{
-                translate: "-20px 0px",
-                padding: "1rem",
-                backgroundColor: "white",
-                listStyleType: "none",
-                display: "flex",
-                flexDirection: "row",
-                gap: "2vh",
-              }}
-            >
-              <li
-                style={{
-                  display: "block",
-                  color: "white",
-                  backgroundColor: "red",
-                  borderRadius: "50%",
-                  height: "3vh",
-                  width: "1.5vw",
-                }}
-              >
-                {(() => {
-                  let splitContents = isclickedItem.Fullname.split(" ");
-                  return `${splitContents[0].charAt(
-                    0
-                  )}${splitContents[1].charAt(0)}`;
-                })()}
-              </li>
-              <li style={{display: "block" }}>
-                <span>{isclickedItem.Fullname}</span>
-                <span style={{ color: "black" }}>{"✏️"}</span>
-                <br />
-                <span style={{ display: "flex" }}>
-                  <div>{isclickedItem.ContactNum}</div>
-                  <div>📄</div>
-                </span>
-                <br />
-                <div style={{ display: "flex", gap: "2vw" }}>
-                  <input type="button" value={"📞"} />
-                  <input type="button" value={"⏱️"} />
-                  <input type="button" value={"🏢"} />
-                </div>
-              </li>
-              <br />
-            </ul>
+            position: "absolute", top: "12vh", left: "73vw",
+            backgroundColor: "lightgrey",
+            height: "fit-content",
+            width: "fit-content",
+          }}>
+          <form>
             <ol
               style={{
-                translate: "-10px 0px",
-                backgroundColor: "white",
                 listStyleType: "none",
                 display: "flex",
-                flexDirection: "row",
-                height: "fit-content",
-                width: "200px",
-                padding: "2vh 1vw",
+                flexDirection: "column",
+                alignContent: "flex-start",
+                alignItems: "flex-start",
               }}
             >
               <li
                 style={{
                   display: "flex",
-                  width:"fit-content",
-                  height:"fit-content",
                   flexDirection: "column",
+                  alignContent: "flex-start",
                   alignItems: "flex-start",
+                  gap: "5vh",
                 }}
               >
-                <span>All Numbers</span>
-                <div
+                <ul
                   style={{
+                    translate: "-20px 0px",
+                    padding: "1rem",
+                    backgroundColor: "white",
+                    listStyleType: "none",
                     display: "flex",
-                    width:"100px",
-                    height:"fit-content",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                  }}>
-                  <span>Home</span>
-                  <br />
-                  <div style={{display: "flex" }}>
-                    <span style={{ marginRight: "2vw" }}>
-                      {isclickedItem.ContactNum}
-                    </span>
-                    <span>{"✏️"}</span>
-                    <span style={{ padding: "0vh 1vw" }}>{"⋮"}</span>
-                  </div>
-                  <br />
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
+                    flexDirection: "row",
+                    gap: "2vh",
                   }}
                 >
-                  <span>Work</span>
-                  <br />
-                  <div style={{ display: "flex" }}>
-                    <span style={{ marginRight: "2vw" }}>
-                      {isclickedItem.ContactNum}
+                  <li
+                    style={{
+                      display: "block",
+                      color: "white",
+                      backgroundColor: "red",
+                      borderRadius: "50%",
+                      height: "3vh",
+                      width: "1.5vw",
+                    }}
+                  >
+                    {(() => {
+                      let splitContents = isclickedItem.Fullname.split(" ");
+                      return `${splitContents[0].charAt(
+                        0
+                      )}${splitContents[1].charAt(0)}`;
+                    })()}
+                  </li>
+                  <li style={{ display: "block" }}>
+                    <span>{isclickedItem.Fullname}</span>
+                    <span style={{ color: "black" }}>{"✏️"}</span>
+                    <br />
+                    <span style={{ display: "flex" }}>
+                      <div>{isclickedItem.ContactNum}</div>
+                      <div>📄</div>
                     </span>
-                    <span>{"✏️"}</span>
-                    <span style={{ padding: "0vh 1vw" }}>{"⋮"}</span>
-                  </div>
-                </div>
+                    <br />
+                    <div style={{ display: "flex", gap: "2vw" }}>
+                      <input type="button" value={"📞"} />
+                      <input type="button" value={"⏱️"} />
+                      <input type="button" value={"🏢"} />
+                    </div>
+                  </li>
+                  <br />
+                </ul>
+                <ol
+                  style={{
+                    translate: "-10px 0px",
+                    backgroundColor: "white",
+                    listStyleType: "none",
+                    display: "flex",
+                    flexDirection: "row",
+                    height: "fit-content",
+                    width: "200px",
+                    padding: "2vh 1vw",
+                  }}
+                >
+                  <li
+                    style={{
+                      display: "flex",
+                      width: "fit-content",
+                      height: "fit-content",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                    }}
+                  >
+                    <span>All Numbers</span>
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "100px",
+                        height: "fit-content",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                      }}>
+                      <span>Home</span>
+                      <br />
+                      <div style={{ display: "flex" }}>
+                        <span style={{ marginRight: "2vw" }}>
+                          {isclickedItem.ContactNum}
+                        </span>
+                        <span>{"✏️"}</span>
+                        <span style={{ padding: "0vh 1vw" }}>{"⋮"}</span>
+                      </div>
+                      <br />
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                      }}
+                    >
+                      <span>Work</span>
+                      <br />
+                      <div style={{ display: "flex" }}>
+                        <span style={{ marginRight: "2vw" }}>
+                          {isclickedItem.ContactNum}
+                        </span>
+                        <span>{"✏️"}</span>
+                        <span style={{ padding: "0vh 1vw" }}>{"⋮"}</span>
+                      </div>
+                    </div>
+                  </li>
+                </ol>
+                <ul
+                  style={{
+                    translate: "-25px 0px",
+                    listStyleType: "none",
+                    display: "flex",
+                    flexDirection: "column",
+                    backgroundColor: "white",
+                    padding: "1vw",
+                  }}
+                >
+                  <li>
+                    <span>About this Contact</span>
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                      <div style={{ display: "flex", gap: "10px" }}>
+                        <span>
+                          {<EmailIcon_SVG />}
+                          {" Email:"}
+                        </span>
+                        <span>{isclickedItem.Fullname + "@gmail.com"}</span>
+                      </div>
+                      <div style={{ display: "flex", gap: "10px" }}>
+                        <span>
+                          {<LocationIcon_SVG />}
+                          {" City:"}
+                        </span>
+                        <span>Western Cape ,Cape Town</span>
+                      </div>
+                      <div style={{ display: "flex", gap: "10px" }}>
+                        <span>
+                          {<OfficeIcon_SVG />}
+                          {" office:"}
+                        </span>
+                        <span>{isclickedItem.Fullname + "@gmail.com"}</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul
+                  style={{
+                    listStyleType: "none",
+                    display: "flex",
+                    flexDirection: "column",
+                    backgroundColor: "white",
+                    padding: "1rem",
+                    translate: "-25px 0px",
+                  }}
+                >
+                  <li>
+                    <span>Email: {isclickedItem.Fullname + "@gmail.com"}</span>
+                  </li>
+                  <li>
+                    <span>City: Western Cape ,Cape Town</span>
+                  </li>
+                </ul>
               </li>
             </ol>
-            <ul
-              style={{
-                translate: "-25px 0px",
-                listStyleType: "none",
-                display: "flex",
-                flexDirection: "column",
-                backgroundColor: "white",
-                padding: "1vw",
-              }}
-            >
-              <li>
-                <span>About this Contact</span>
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <div style={{ display: "flex", gap: "10px" }}>
-                    <span>
-                      {<EmailIcon_SVG />}
-                      {" Email:"}
-                    </span>
-                    <span>{isclickedItem.Fullname + "@gmail.com"}</span>
-                  </div>
-                  <div style={{ display: "flex", gap: "10px" }}>
-                    <span>
-                      {<LocationIcon_SVG />}
-                      {" City:"}
-                    </span>
-                    <span>Western Cape ,Cape Town</span>
-                  </div>
-                  <div style={{ display: "flex", gap: "10px" }}>
-                    <span>
-                      {<OfficeIcon_SVG />}
-                      {" office:"}
-                    </span>
-                    <span>{isclickedItem.Fullname + "@gmail.com"}</span>
-                  </div>
-                </div>
-              </li>
-            </ul>
-            <ul
-              style={{
-                listStyleType: "none",
-                display: "flex",
-                flexDirection: "column",
-                backgroundColor: "white",
-                padding: "1rem",
-                translate: "-25px 0px",
-              }}
-            >
-              <li>
-                <span>Email: {isclickedItem.Fullname + "@gmail.com"}</span>
-              </li>
-              <li>
-                <span>City: Western Cape ,Cape Town</span>
-              </li>
-            </ul>
-          </li>
-        </ol>
-      </form>
-    </div>
+          </form>
+        </div>
+      )
+    }
+  </React.Fragment>
+
   );
 }
 export const MapPageBody = function () {
@@ -355,7 +357,7 @@ export const MapPageBody = function () {
       />
       <RenderMap />
       <MapPageFocusedContactInfo isclickedItem={[isclickeditem, setIsclickeditem]} />
-      
+
     </div>
   );
 };
