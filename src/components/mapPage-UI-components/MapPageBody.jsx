@@ -1,54 +1,76 @@
 import React, { useState } from "react";
-import { ContactsPageFocusedContactInfo, EmailIcon_SVG, LocationIcon_SVG, OfficeIcon_SVG } from "../contactsPage-UI-components/ContactsPageBody";
+import {
+  EmailIcon_SVG,
+  LocationIcon_SVG,
+  OfficeIcon_SVG,
+} from "../contactsPage-UI-components/ContactsPageBody";
+
 
 export const ToggleableSideNavbar = function (props) {
-  const [isOpen, setIsOpen] = useState(true);
+//                    variables                         //
+  const [isOpen, setIsOpen] = props.isOpen;
   const [initialListOfContacts, listOfContacts, setListOfContacts] = props.listOfContacts;
   const [searchQueryText, setSearchQueryText] = props.searchQueryText;
   const [isclickedItem, setIsclickedItem] = props.isclickedItem;
+
+//                     functions                        //
+  const handleToggleContacts_IsOpen = () => {
+    setIsOpen(!isOpen);
+    console.log(isOpen);
+  }
+
   const handleSearch = function () {
     if (searchQueryText === "") {
       setListOfContacts(initialListOfContacts);
     } else {
-      const filtered = [...listOfContacts].filter(
-        (item, index, arr) =>
-          item.Fullname.toUpperCase().includes(searchQueryText.toUpperCase())
+      const filtered = [...listOfContacts].filter((item, index, arr) =>
+        item.Fullname.toUpperCase().includes(searchQueryText.toUpperCase())
       );
       console.log(filtered);
       setListOfContacts(filtered);
     }
-  };
+  }
+
   const displayClickedPeopleInfo = function (arrItem) {
     listOfContacts.indexOf(arrItem);
     setIsclickedItem({ ...arrItem });
     console.log(isclickedItem);
-  };
-
+  }
+  //             returned jsx             //
   return (
     <React.Fragment>
       <style>
         {`
           .ToggleableSideNavbar_OpenNavbar{
-            height:40vh;
-            width:fit-content;
-            transition-duration:1000ms;
+            background-color: white;
+            translate: 0px 0px;
+            position: absolute;
+            top: 15vh;
+            transitionDuration: 2000ms;
+            height: 30vh;
           }
           .ToggleableSideNavbar_CloseNavbar{
-            height:max-content;
+            position: absolute;
+            top: -1000vh;
+            height:0px;
             width:0px;
-            transition-duration:1000ms;
+            transition-duration:2000ms;
           }
         `}
       </style>
-      <div style={{ translate: "0px 0px", position: "absolute", top: "15vh", transitionDuration: "1000ms", height: "30vh" }}>
+      <button style={{position:"absolute",top:"3vh",left:"2.5vw",width:"5vw",backgroundColor:"transparent",outline:"0px solid black",cursor:"pointer"}} onClick={() => handleToggleContacts_IsOpen()}></button>
+      <div className={`${(isOpen === true)? "ToggleableSideNavbar_OpenNavbar" : "ToggleableSideNavbar_CloseNavbar" }`}
+      >
         <input
           type="search"
           placeholder="🔍Search"
           onChange={(e) => setSearchQueryText(e.target.value)}
         />
         <button onClick={() => handleSearch()}>Search</button>
+        <button onClick={() => handleToggleContacts_IsOpen()}>X</button>
         <ol
           style={{
+            backgroundColor:"white",
             listStyleType: "none",
             display: "flex",
             width: "fit-content",
@@ -56,7 +78,8 @@ export const ToggleableSideNavbar = function (props) {
             flexDirection: "column",
             gap: "2vh",
             overflowY: "scroll",
-          }}>
+          }}
+        >
           {listOfContacts &&
             listOfContacts.map((item, index, arr) => (
               <li
@@ -68,10 +91,11 @@ export const ToggleableSideNavbar = function (props) {
                   width: "308px",
                   display: "flex",
                   gap: "2rem",
-                  backgroundColor: `${isclickedItem.Fullname === item.Fullname
-                    ? "lightgrey"
-                    : "white"
-                    }`,
+                  backgroundColor: `${
+                    isclickedItem.Fullname === item.Fullname
+                      ? "lightgrey"
+                      : "white"
+                  }`,
                 }}
               >
                 <div
@@ -109,26 +133,52 @@ export const ToggleableSideNavbar = function (props) {
   );
 };
 
-export const RenderMap = function () {
-  return <div style={{ position: "relative", top: "25vh", left: "25vw", zIndex: -1 }}>MapRenderer</div>;
+export const RenderMap = function(props){
+  const [isOpen,setIsOpen] = props.isOpen;
+
+  const handleToggleContacts_IsOpen = () => {
+    setIsOpen(!isOpen);
+    console.log(isOpen);
+  }
+
+  return (
+    <div
+      style={{ position: "relative", top: "15vh", left: "5vw", zIndex: -1 }}
+    >
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3311.844671363457!2d18.50846697571475!3d-33.89365402034654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc5c1101bde571%3A0x45f2ef24ee31e772!2sAbsa%20%7C%20Branch%20%7C%20Canal%20Walk!5e0!3m2!1sen!2sza!4v1693556360843!5m2!1sen!2sza"
+        width="1020"
+        height="590"
+        style={{border:"1px solid black"}}
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade" />
+    </div>
+  );
 };
 
 export const MapPageFocusedContactInfo = function (props) {
-  const [isclickedItem,setIsclickedItem] = props.isclickedItem;
+  const [isclickedItem, setIsclickedItem] = props.isclickedItem;
 
   return (
     <React.Fragment>
-    {
-        isclickedItem.Fullname === "" ||
-        isclickedItem === undefined ||
-        isclickedItem === null ? <div style={{ position: "absolute", top:"20vh",left:"80vw" }}>Loading...</div> : (
+      {isclickedItem.Fullname === "" ||
+      isclickedItem === undefined ||
+      isclickedItem === null ? (
+        <div style={{ position: "absolute", top: "20vh", left: "80vw" }}>
+          Loading...
+        </div>
+      ) : (
         <div
           style={{
-            position: "absolute", top: "12vh", left: "73vw",
+            position: "absolute",
+            top: "12vh",
+            left: "73vw",
             backgroundColor: "lightgrey",
             height: "fit-content",
             width: "fit-content",
-          }}>
+          }}
+        >
           <form>
             <ol
               style={{
@@ -222,7 +272,8 @@ export const MapPageFocusedContactInfo = function (props) {
                         height: "fit-content",
                         flexDirection: "column",
                         alignItems: "flex-start",
-                      }}>
+                      }}
+                    >
                       <span>Home</span>
                       <br />
                       <div style={{ display: "flex" }}>
@@ -311,12 +362,10 @@ export const MapPageFocusedContactInfo = function (props) {
             </ol>
           </form>
         </div>
-      )
-    }
-  </React.Fragment>
-
+      )}
+    </React.Fragment>
   );
-}
+};
 export const MapPageBody = function () {
   const initialListOfContacts = [
     { Fullname: "Simthembile Kleinbooi", ContactNum: "+123456789" },
@@ -330,6 +379,7 @@ export const MapPageBody = function () {
     { Fullname: "Tilly Chandler", ContactNum: "+123456789" },
     { Fullname: "Kesley Walker", ContactNum: "+123456789" },
   ];
+  const [isOpen, setIsOpen] = useState(true);
   const [listOfContacts, setListOfContacts] = useState(initialListOfContacts);
   const [searchQueryText, setSearchQueryText] = useState("");
   const [isclickeditem, setIsclickeditem] = useState({
@@ -347,6 +397,7 @@ export const MapPageBody = function () {
       }}
     >
       <ToggleableSideNavbar
+        isOpen={[isOpen, setIsOpen]}
         searchQueryText={[searchQueryText, setSearchQueryText]}
         isclickedItem={[isclickeditem, setIsclickeditem]}
         listOfContacts={[
@@ -355,9 +406,10 @@ export const MapPageBody = function () {
           setListOfContacts,
         ]}
       />
-      <RenderMap />
-      <MapPageFocusedContactInfo isclickedItem={[isclickeditem, setIsclickeditem]} />
-
+      <RenderMap isOpen={[isOpen, setIsOpen]} />
+      <MapPageFocusedContactInfo
+        isclickedItem={[isclickeditem, setIsclickeditem]}
+      />
     </div>
   );
 };
