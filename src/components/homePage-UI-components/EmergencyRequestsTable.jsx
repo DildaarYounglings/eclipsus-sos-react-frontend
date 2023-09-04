@@ -2,17 +2,7 @@ import React from "react";
 
 export const EmergencyRequestsTable = function () {
   return (
-    <div
-      style={{
-        display: "flex",
-        gap: "15rem",
-        position: "absolute",
-        top: "300px",
-        left: "100px",
-        width: "fit-content",
-        height: "fit-content",
-      }}
-    >
+    <div className="EmergencyRequestsTable">
       <ol style={{listStyle: "none" }}>
         <li>
           <table

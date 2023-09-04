@@ -8,6 +8,7 @@ import { MapPage } from "./pages/MapPage";
 
 export const UI_context = React.createContext();
 function App() {
+  console.log(window.innerHeight,window.innerWidth);
   const [testMode, setTestMode] = useState(false);
   const [UI, set_UI] = useState("/Dashboard");
   return (

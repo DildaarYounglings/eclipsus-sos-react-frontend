@@ -91,67 +91,32 @@ export const LuthoProfilePic_SVG = function () {
 
 export const UserProfileNavbar = function () {
   return (
+
     <div
-      style={{
-        position: "absolute",
-        top: "0vh",
-        left: "9.5vw",
-        width: "fit-content",
-        height: "6rem",
-      }}
+      className="UserProfileNavbar"
     >
-      <ul
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          gap: "10vw",
-          listStyle: "none",
-          translate:"-20px 0px"
-        }}
-      >
-        <li style={{display: "flex", flexDirection: "row", gap: "3vw" }}>
-          <span style={{ fontSize: "19px" }}>Dashboard</span>{" "}
+      <ul className="UserProfileNavba_ul">
+        <li className="li_1">
+          <span className="li_1_span">Dashboard</span>{" "}
           <input
-            style={{ width: "309px", height: "39px", borderRadius: "50px" }}
+            className="li_1_searchInput"
             type="search"
             placeholder="🔍 Search"
           />
         </li>
         <li
-          style={{
-            position: "relative",
-            top: "-10px",
-            backgroundColor: "#13163F",
-            borderRadius: "8px",
-            height: "fit-content",
-            width: "fit-content",
-            display: "flex",
-          }}
+          className="li_2"
         >
           <div>
-            <ul
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                gap: "1rem",
-                listStyle: "none",
-              }}
-            >
-              <li style={{ display: "flex" }}>
+            <ul className="li_2_ul">
+              <li className="li_2_ul_li_1">
                 <p style={{ color: "white" }}>
                   Simthembile Kleinbooi<br/>
                   <span style={{ color: "grey", translate: "0px -25px" }}>+12 345 6789</span>
                 </p>
               </li>
-              <li style={{height:"fit-content",width:"fit-content",translate: "-10px 10px" }}>
-                <button
-                  style={{
-                    backgroundColor: "#FF0000",
-                    borderRadius: "500%",
-                    width: "fit-content",
-                    height: "fit-content",
-                  }}
-                >
+              <li className="li_2_ul_li_2">
+                <button>
                   <DeclinePhoneCallBtn_SVG />
                 </button>
               </li>

@@ -10,7 +10,7 @@ export const ContactsPageList = function (props) {
     } else {
       const filtered = [...listOfContacts].filter(
         (item, index, arr) =>
-          searchQueryText.toUpperCase() === item.Fullname.toUpperCase()
+          item.Fullname.toUpperCase().includes(searchQueryText.toUpperCase())
       );
       console.log(filtered);
       setListOfContacts(filtered);
@@ -23,24 +23,14 @@ export const ContactsPageList = function (props) {
   };
 
   return (
-    <div>
+    <div className="ContactsPageList">
       <input
         type="search"
         placeholder="🔍Search"
         onChange={(e) => setSearchQueryText(e.target.value)}
       />
-      <button onClick={() => handleSearch()}>Search</button>
-      <ol
-        style={{
-          listStyleType: "none",
-          display: "flex",
-          width: "fit-content",
-          height: "78vh",
-          flexDirection: "column",
-          gap: "4vh",
-          overflowY: "scroll",
-        }}
-      >
+      <button onClick={() => handleSearch()}>Search | refresh</button>
+      <ol>
         {listOfContacts &&
           listOfContacts.map((item, index, arr) => (
             <li
@@ -123,16 +113,7 @@ export const ContactsPageSMS = function () {
     },
   ]);
   return (
-    <div
-      style={{
-        backgroundColor: "lightgrey",
-        width: "630px",
-        height: "742px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "5vw",
-      }}
-    >
+    <div className="ContactsPageSMS">
       <div
         style={{
           overflowY: "scroll",
@@ -211,26 +192,17 @@ export const ContactsPageSMS = function () {
     </div>
   );
 };
+
+
 export const ContactsPageFocusedContactInfo = function (props) {
   const [isclickedItem] = props.isclickedItem;
-  if (
-    isclickedItem.Fullname === "" ||
-    isclickedItem === undefined ||
-    isclickedItem === null
-  ) {
-    return <div>Loading...</div>;
-  }
   return (
-    <div
-      id="ContactsPageFocusedContactInfo"
-      style={{
-        backgroundColor: "lightgrey",
-        height: "83.8vh",
-        paddingTop: "1vh",
-        width: "fit-content",
-        translate: "0px -60px",
-      }}
-    >
+  <>
+    {
+      (isclickedItem.Fullname === "" ||
+      isclickedItem === undefined ||
+      isclickedItem === null)? (<div>Loading...</div> ) : (
+        <div id="ContactsPageFocusedContactInfo" style={{backgroundColor: "rgb(247, 247, 247)", height: "83vh",paddingTop: "1vh",width: "fit-content",translate: "0px -60px",}}>
       <form>
         <ol
           style={{
@@ -413,6 +385,9 @@ export const ContactsPageFocusedContactInfo = function (props) {
         </ol>
       </form>
     </div>
+      )
+    }
+  </>
   );
 };
 
@@ -504,7 +479,7 @@ export const ContactsPageBody = function () {
         left: "130px",
         display: "grid",
         gridTemplateColumns: "auto auto auto",
-        gap: "5vw",
+        gap: "2vw",
         width: "fit-content",
         height: "fit-content",
       }}
