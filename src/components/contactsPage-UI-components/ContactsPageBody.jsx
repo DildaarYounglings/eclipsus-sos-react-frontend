@@ -135,7 +135,7 @@ export const ContactsPageSMS = function () {
               key={index}
               style={{
                 borderRadius: "20px",
-                backgroundColor: "white",
+                backgroundColor: "rgb(247, 247, 247)",
                 height: "fit-content",
                 width: "fit-content",
                 display: "flex",
@@ -202,7 +202,7 @@ export const ContactsPageFocusedContactInfo = function (props) {
       (isclickedItem.Fullname === "" ||
       isclickedItem === undefined ||
       isclickedItem === null)? (<div>Loading...</div> ) : (
-        <div id="ContactsPageFocusedContactInfo" style={{backgroundColor: "rgb(247, 247, 247)", height: "83vh",paddingTop: "1vh",width: "fit-content",translate: "0px -60px",}}>
+        <div id="ContactsPageFocusedContactInfo" style={{backgroundColor: "rgb(247, 247, 247)", height: "fit-content",width: "340px",translate: "0px -75px",}}>
       <form>
         <ol
           style={{
@@ -219,7 +219,7 @@ export const ContactsPageFocusedContactInfo = function (props) {
               flexDirection: "column",
               alignContent: "flex-start",
               alignItems: "flex-start",
-              gap: "5vh",
+              gap: "2vh",
             }}
           >
             <ul
@@ -275,9 +275,9 @@ export const ContactsPageFocusedContactInfo = function (props) {
                 listStyleType: "none",
                 display: "flex",
                 flexDirection: "row",
-                height: "fit-content",
+                height: "190px",
                 width: "200px",
-                padding: "2vh 1vw",
+                padding: "1vh",
               }}
             >
               <li

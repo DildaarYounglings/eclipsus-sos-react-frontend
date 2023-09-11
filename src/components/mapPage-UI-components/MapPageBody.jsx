@@ -143,7 +143,7 @@ export const RenderMap = function(props){
 
   return (
     <div
-      style={{ position: "relative", top: "15vh", left: "5vw", zIndex: -1 }}
+      style={{ position: "relative", top: "15vh", left: "1.5vw", zIndex: -1 }}
     >
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3311.844671363457!2d18.50846697571475!3d-33.89365402034654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc5c1101bde571%3A0x45f2ef24ee31e772!2sAbsa%20%7C%20Branch%20%7C%20Canal%20Walk!5e0!3m2!1sen!2sza!4v1693556360843!5m2!1sen!2sza"
