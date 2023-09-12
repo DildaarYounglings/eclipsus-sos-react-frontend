@@ -30,20 +30,145 @@
 }
 // Small devices (portrait tablets and large phones, 600px and up) //
 @media only screen and (min-width: 600px) {
+  body {
+    margin: 0px;background-color:green;
+  }
 }
 
 // Medium devices (landscape tablets, 768px and up) //
 @media only screen and (min-width: 768px) {
+  body {
+    margin: 0px;background-color: blue;
+  }
 }
 
 // Large devices (laptops/desktops, 992px and up) //
 @media only screen and (min-width: 992px) {
+  body {
+    margin: 0px;background-color:white;
+  }
+//////////////////////////////////////////////
+  .UserProfileNavbar {
+    position: absolute;
+    top: 0vh;
+    left: 9.5vw;
+    width: 100vw;
+    height: 6rem;
+    .UserProfileNavba_ul {
+      display: flex;
+      flex-direction: row;
+      gap: 2vw;
+      list-style: none;
+      translate: -20px 0px;
+      .li_1 {
+        display: flex;
+        flex-direction: row;
+        gap: 2vw;
+        .li_1_span {
+          font-size: 19px;
+        }
+        .li_1_searchInput {
+          width: 309px;
+          height: 39px;
+          border-radius: 50px;
+        }
+      }
+      .li_2 {
+        translate: 0px -10px;
+        background-color: #13163f;
+        border-radius: 8px;
+        height: fit-content;
+        width: fit-content;
+        display: flex;
+        .li_2_ul {
+          display: flex;
+          flex-direction: row;
+          gap: 1.5rem;
+          list-style: none;
+          .li_2_ul_li_1 {
+            display: "flex";
+          }
+          .li_2_ul_li_2 {
+            height: fit-content;
+            width: fit-content;
+            translate: -10px 10px;
+            button {
+              background-color: #ff0000;
+              border-radius: 500%;
+              width: fit-content;
+              height: fit-content;
+            }
+          }
+        }
+      }
+    }
+  }
+  //////////////////////////////
+  .WelcomeUser{
+    position:absolute; top:102px; left:130px; width:fit-content; height: 13rem;
+    ol{width:87vw; translate:-10px 0px; list-style:none; display:flex; gap:2vw;}
+  }
+  //////////////////////////////
+  .EmergencyRequestsTable {
+    display:flex;
+    gap:5vw;
+    position:absolute;
+    top:300px;
+    left:100px;
+    width:fit-content;
+    height:fit-content;
+  }
+  /////////////  ContactsPageBody  ////////////////
+  .ContactsPageBody{
+    position: absolute;
+    top: 150px;
+    left: 121px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 0vw;
+    width: fit-content;
+    height: fit-content;
+  }
+  .ContactsPageList{
+    translate:0px -50px;
+    > ol{
+      list-style-type:none;
+      display:flex;
+      width:fit-content;
+      height:70vh;
+      flex-direction:column;
+      gap:1.5vh;
+      overflow-y:scroll;
+    }
+  }
+  .ContactsPageSMS{
+    background-color:transparent;
+    width:440px;
+    height:700px;
+    display:flex;
+    flex-direction:column;
+    gap:0vh;
+    .ContactsPageSMS-ol{
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2vw;
+      .ContactsPageSMS-li{
+        border-radius: 20px;
+        background-color: rgb(247, 247, 247);
+        height: fit-content;
+        width: fit-content;
+        display: flex;
+        gap: 2rem;
+      }
+    }
+  }
 }
 
 // Extra large devices (large laptops and desktops, 1200px and up) //
 @media only screen and (min-width: 1200px) {
   body {
-    margin: 0px;
+    margin: 0px;background-color:cyan;
   }
   ///////////////////////
   .UserProfileNavbar {

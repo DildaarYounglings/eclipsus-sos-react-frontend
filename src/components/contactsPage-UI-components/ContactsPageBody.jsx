@@ -122,26 +122,9 @@ export const ContactsPageSMS = function () {
           paddingRight: "7vw",
         }}
       >
-        <ol
-          style={{
-            listStyleType: "none",
-            display: "flex",
-            flexDirection: "column",
-            gap: "5vw",
-          }}
-        >
+        <ol className="ContactsPageSMS-ol">
           {messagesArray.map((item, index, arr) => (
-            <li
-              key={index}
-              style={{
-                borderRadius: "20px",
-                backgroundColor: "rgb(247, 247, 247)",
-                height: "fit-content",
-                width: "fit-content",
-                display: "flex",
-                gap: "2rem",
-              }}
-            >
+            <li key={index} className="ContactsPageSMS-li">
               <div
                 style={{
                   width: "2rem",
@@ -472,18 +455,7 @@ export const ContactsPageBody = function () {
     ContactNum: "",
   });
   return (
-    <div
-      style={{
-        position: "absolute",
-        top: "150px",
-        left: "130px",
-        display: "grid",
-        gridTemplateColumns: "auto auto auto",
-        gap: "2vw",
-        width: "fit-content",
-        height: "fit-content",
-      }}
-    >
+    <div className="ContactsPageBody">
       <ContactsPageList
         searchQueryText={[searchQueryText, setSearchQueryText]}
         isclickedItem={[isclickeditem, setIsclickeditem]}
