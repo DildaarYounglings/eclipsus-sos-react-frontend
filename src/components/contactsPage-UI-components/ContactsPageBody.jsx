@@ -435,6 +435,7 @@ export const EmailIcon_SVG = () => {
     </svg>
   );
 };
+
 export const ContactsPageBody = function () {
   const initialListOfContacts = [
     { Fullname: "Simthembile Kleinbooi", ContactNum: "+123456789" },
